@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: provision
   author: rafaelcalexandre
   description: Create ansible automation user in debian servers
   license: MIT

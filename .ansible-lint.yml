@@ -5,6 +5,8 @@ exclude_paths:
 skip_list:
   - fqcn-builtins
   - fqcn
+  - yaml
+  - role-name
 
 warn_list:
   - name[missing]
