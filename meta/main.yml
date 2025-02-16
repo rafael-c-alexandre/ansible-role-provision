@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: rafaelcalexandre
+  description: Create ansible automation user in debian servers
+  license: MIT
+  min_ansible_version: "2.18"
+  platforms:
+    - name: Debian
+  galaxy_tags:
+    - provision
+    - user
+    - system
+dependencies: []

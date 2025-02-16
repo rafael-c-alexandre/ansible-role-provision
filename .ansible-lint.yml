@@ -1,0 +1,11 @@
+---
+exclude_paths:
+  - .ansible
+
+skip_list:
+  - fqcn-builtins
+  - fqcn
+
+warn_list:
+  - name[missing]
+  - name[casing]
