@@ -12,7 +12,7 @@
     validate: "visudo -cf %s"
 
 - name: "Ensure SSH key for ansible user is present."
-  ansible.posix.authorized_key:
+  authorized_key:
     user: "{{ automated_user }}"
     state: present
     key: "{{ lookup('file', '{{ ssh_pub_key_location }}') }}"

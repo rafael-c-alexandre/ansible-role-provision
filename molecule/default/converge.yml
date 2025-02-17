@@ -10,4 +10,4 @@
         cache_valid_time: 600
 
   roles:
-    - role: rafaelcalexandre.provision
+    - role: rafael-c-alexandre.provision
