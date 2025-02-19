@@ -1,38 +1,46 @@
-Role Name
+![ci](https://github.com/rafael-c-alexandre/ansible-role-provision/actions/workflows/ci.yml/badge.svg)
+![release](https://github.com/rafael-c-alexandre/ansible-role-provision/actions/workflows/release.yml/badge.svg)
+
+rafael-c-alexandre.provision
 =========
 
-A brief description of the role goes here.
+An Ansible role to provision an automated user for executing Ansible playbooks on Debian servers. It creates a user and configures SSH access.
+
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- **Ansible Version**: Ensure you are running Ansible version 2.18 or higher.
+- **Supported Systems**: This role is designed for Debian-based systems.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The following variables can be customized to tailor the role to your needs. Default values are defined in `defaults/main.yml`.
+
+- `automated_user`: *(Default: `"ansible"`)* The username of the automated user to be created.
+- `ssh_pub_key_location`: *(Default: `"~/.ssh/ansible.pub"`)* The path to the SSH public key that will be added to the user's `authorized_keys`.
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role has no external dependencies.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: all
+  become: true
+  roles:
+    - role: rafael-c-alexandre-provision
+      vars:
+        automated_user: deploy
+        ssh_pub_key_location: "/home/user/.ssh/deploy.pub"
+```
 
 License
 -------
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT
