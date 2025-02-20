@@ -6,7 +6,6 @@ rafael-c-alexandre.provision
 
 An Ansible role to provision an automated user for executing Ansible playbooks on Debian servers. It creates a user and configures SSH access.
 
-
 Requirements
 ------------
 

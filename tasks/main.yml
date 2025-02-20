@@ -1,17 +1,17 @@
 ---
-- name: "Ensure ansible user is created."
+- name: Ensure ansible user is created.
   user:
     name: "{{ automated_user }}"
     create_home: true
 
-- name: "Grant sudo access to ansible user."
+- name: Grant sudo access to ansible user.
   copy:
     dest: "/etc/sudoers.d/{{ automated_user }}"
     content: "{{ automated_user }} ALL=(ALL) NOPASSWD: ALL"
     mode: "0440"
     validate: "visudo -cf %s"
 
-- name: "Ensure SSH key for ansible user is present."
+- name: Ensure SSH key for ansible user is present.
   authorized_key:
     user: "{{ automated_user }}"
     state: present
