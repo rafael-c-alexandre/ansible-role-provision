@@ -43,6 +43,8 @@ Example Playbook
         custom_new_users:
           - user: provision-user
             groups: provision-group
+            system: true
+            shell: /usr/sbin/nologin
 ```
 
 License

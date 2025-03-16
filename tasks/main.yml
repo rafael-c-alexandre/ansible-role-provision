@@ -28,4 +28,6 @@
     name: "{{ item.user }}"
     create_home: true
     groups: "{{ item.groups }}"
+    system: "{{ item.system }}"
+    shell: "{{ item.shell }}"
   with_items: "{{ custom_new_users }}"
