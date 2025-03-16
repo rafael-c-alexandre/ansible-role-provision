@@ -4,7 +4,7 @@
 rafael-c-alexandre.provision
 =========
 
-An Ansible role to provision an automated user for executing Ansible playbooks on Debian servers. It creates a user and configures SSH access.
+An Ansible role to provision an automated user for executing Ansible playbooks on Debian servers. It creates a user and configures SSH access. Optionally, it can also create new users and user groups.
 
 Requirements
 ------------
@@ -19,7 +19,8 @@ The following variables can be customized to tailor the role to your needs. Defa
 
 - `automated_user`: *(Default: `"ansible"`)* The username of the automated user to be created.
 - `ssh_pub_key_location`: *(Default: `"~/.ssh/ansible.pub"`)* The path to the SSH public key that will be added to the user's `authorized_keys`.
-
+- `custom_new_groups`: *(Default: `"[]"`)* New user groups to be created in the target machine.
+- `custom_new_users`: *(Default: `"[]"`)* New users to be created in the target machine and optional groups to assign those users to.
 
 Dependencies
 ------------
@@ -37,6 +38,11 @@ Example Playbook
       vars:
         automated_user: deploy
         ssh_pub_key_location: "/home/user/.ssh/deploy.pub"
+        custom_new_groups:
+          - provision-group
+        custom_new_users:
+          - user: provision-user
+            groups: provision-group
 ```
 
 License
