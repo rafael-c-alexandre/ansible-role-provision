@@ -1,3 +1,10 @@
 ---
 automated_user: ansible
+
 ssh_pub_key_location: ~/.ssh/ansible.pub
+
+custom_new_groups:
+  - provision-group
+custom_new_users:
+  - user: provision-user
+    groups: provision-group

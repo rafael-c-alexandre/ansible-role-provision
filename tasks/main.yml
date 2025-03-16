@@ -16,3 +16,16 @@
     user: "{{ automated_user }}"
     state: present
     key: "{{ lookup('file', '{{ ssh_pub_key_location }}') }}"
+
+- name: Create custom group.
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ custom_new_groups }}"
+
+- name: Create custom users.
+  user:
+    name: "{{ item.user }}"
+    create_home: true
+    groups: "{{ item.groups }}"
+  with_items: "{{ custom_new_users }}"
