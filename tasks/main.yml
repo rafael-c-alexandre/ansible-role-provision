@@ -17,7 +17,7 @@
     state: present
     key: "{{ lookup('file', '{{ ssh_pub_key_location }}') }}"
 
-- name: Create custom group.
+- name: Create custom groups.
   group:
     name: "{{ item }}"
     state: present
