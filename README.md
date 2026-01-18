@@ -42,6 +42,7 @@ Example Playbook
           - provision-group
         custom_new_users:
           - user: provision-user
+            create_home: true
             groups: provision-group
             system: true
             shell: /usr/sbin/nologin

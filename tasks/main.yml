@@ -26,7 +26,8 @@
 - name: Create custom users.
   user:
     name: "{{ item.user }}"
-    create_home: true
+    create_home: "{{ item.create_home | default(true) }}"
+    group: "{{ item.user }}"
     groups: "{{ item.groups }}"
     system: "{{ item.system }}"
     shell: "{{ item.shell }}"
